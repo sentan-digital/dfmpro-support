@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>インストール手順 | DFMPro サポートセンター</title>
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;color:#111;background:#fff;}
+    header{padding:20px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:10;}
+    .wrap{max-width:980px;margin:0 auto;padding:0 20px;}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    h1{font-size:22px;margin:0;}
+    .sub{margin:6px 0 0;color:#666;font-size:14px;}
+    nav a{color:#0b5;text-decoration:none;font-weight:600;}
+    nav a:hover{text-decoration:underline;}
+    main{padding:22px 0 40px;}
+    h2{font-size:18px;margin:26px 0 10px;}
+    h3{font-size:16px;margin:18px 0 8px;}
+    p,li{line-height:1.7;}
+    .note{background:#f7faf7;border:1px solid #d7f0df;padding:12px 14px;border-radius:12px;color:#134;}
+    .warn{background:#fff7ed;border:1px solid #fed7aa;padding:12px 14px;border-radius:12px;color:#7c2d12;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0;}
+    .card{border:1px solid #eee;border-radius:14px;padding:14px;background:#fff;}
+    .card h3{margin-top:0;}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#0b5;color:#fff;text-decoration:none;font-weight:700;}
+    .btn:hover{opacity:.92;}
+    .btn2{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #ddd;color:#111;text-decoration:none;font-weight:700;background:#fff;}
+    .btn2:hover{background:#fafafa;}
+    code{background:#f5f5f5;padding:2px 6px;border-radius:6px;}
+    .toc{border:1px solid #eee;border-radius:14px;padding:14px;background:#fff;}
+    .toc a{color:#0b5;text-decoration:none;}
+    .toc a:hover{text-decoration:underline;}
+    footer{border-top:1px solid #eee;padding:18px 0;color:#777;font-size:13px;}
+    .small{font-size:13px;color:#666;}
+    .pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;background:#f5f5f5;color:#444;margin-left:8px;}
+    .two{display:grid;grid-template-columns:1fr;gap:10px;}
+    @media(min-width:860px){ .two{grid-template-columns:1fr 1fr;} }
+    .hr{height:1px;background:#eee;margin:18px 0;}
+    .kbd{display:inline-block;border:1px solid #ddd;border-bottom-width:2px;background:#fff;border-radius:6px;padding:1px 6px;font-size:12px;color:#333;}
+    .muted{color:#666;}
+    .badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:#eef6ff;color:#123;margin-left:8px;border:1px solid #dbeafe;}
+    .anchor{scroll-margin-top:92px;}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap topbar">
+    <div>
+      <h1>インストール手順 <span class="pill">仮</span></h1>
+      <p class="sub">DFMPro for Creo Parametric を導入する手順です（運用しながら内容を詰めていきます）。</p>
+    </div>
+    <nav>
+      <a href="./index.html">← サポートセンター</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="two">
+    <section class="toc">
+      <strong>このページの目次</strong>
+      <ul>
+        <li><a href="#precheck">0. 事前確認</a></li>
+        <li><a href="#download">1. ダウンロード</a></li>
+        <li><a href="#install">2. インストール</a></li>
+        <li><a href="#license">3. ライセンス / アクティベーション</a></li>
+        <li><a href="#verify">4. 動作確認</a></li>
+        <li><a href="#trouble">5. よくあるつまずき</a></li>
+        <li><a href="#uninstall">6. アンインストール / 再インストール（仮）</a></li>
+        <li><a href="#contact">7. うまくいかない時</a></li>
+      </ul>
+
+      <p class="small">
+        ※「Creo対応バージョン」は <a href="./creo-compat.html">Creo対応バージョン</a> を参照してください。
+      </p>
+      <p class="small">
+        ※「DFMルール」関連は、今後 <span class="kbd">Rule Managerの使い方</span> / <span class="kbd">困りごとから探す</span> の2ページに分けて整理予定です。
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>まずやること（最短ルート）</h3>
+      <ol>
+        <li>対応バージョンを確認（Creo / OS / DFMPro）</li>
+        <li>インストーラー（Zip）をダウンロード</li>
+        <li><strong>管理者権限</strong>でセットアップ実行</li>
+        <li>Creo起動 → DFMProメニュー確認</li>
+      </ol>
+      <div class="hr"></div>
+      <a class="btn" href="https://forms.office.com/r/U1B6WRdaht" target="_blank" rel="noopener">サポートに連絡</a>
+      <a class="btn2" href="#trouble">つまずき集を見る</a>
+    </section>
+  </div>
+
+  <h2 id="precheck" class="anchor">0. 事前確認</h2>
+
+  <div class="warn">
+    <strong>重要（超多いミス）：</strong>
+    DFMProは「Creoのメジャーバージョン別（8/9/10/11/12…）」にインストーラーが分かれます。<br>
+    例：Creo 8 に Creo 9 用を入れても <strong>メニューが出ません</strong>。まず <a href="./creo-compat.html">Creo対応バージョン</a> を確認してください。
+  </div>
+
+  <div class="warn" style="margin-top:10px;">
+    <strong>管理者権限について：</strong>
+    インストール時は <strong>管理者権限</strong> が必要な場合があります。<br>
+    うまく登録されないときは、まず「セットアップを <strong>右クリック → 管理者として実行</strong>」を確認してください。
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h3>必要情報（問い合わせ時にも必須）</h3>
+      <ul>
+        <li>Creoバージョン（例：Creo 8.0 / 9.0 / 10.0 …）</li>
+        <li>OS（Windows 10/11 など）</li>
+        <li>DFMProバージョン（例：v13.x）</li>
+        <li>ライセンス形態（ノードロック / フローティング など）</li>
+      </ul>
+      <p class="small muted">
+        ヒント：Creoのバージョンは、Creo起動後 <span class="kbd">ヘルプ</span> → <span class="kbd">バージョン情報</span> 等で確認できます。
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>事前に確認しておくこと</h3>
+      <ul>
+        <li>インストール先PCに対象のCreoが入っているか</li>
+        <li>セキュリティソフト/社内ポリシーでブロックされないか</li>
+        <li>既存DFMProがある場合、上書き可否（運用方針）</li>
+        <li>Creoが複数入っている場合：<strong>どのCreoに導入するか</strong>（8/9/10…）</li>
+      </ul>
+    </section>
+  </div>
+
+  <h2 id="download" class="anchor">1. ダウンロード</h2>
+
+  <div class="note">
+    <strong>方針：</strong>このサイトから配布するZipは「日本語インストールガイド差し替え済み」を想定します。<br>
+    （HCL公式のZipと内容が異なる場合があります）
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h3>インストーラー（ここにリンクを貼る） <span class="badge">差し替え想定</span></h3>
+      <p class="small">
+        Creoのメジャーバージョン（8/9/10/11/12）に合わせて選択してください。<br>
+        ※運用が固まり次第、GitHub Releases / OneDrive / Xドライブ等のURLに差し替えます。
+      </p>
+
+      <!-- ここを後で実リンクに差し替え -->
+      <p>
+        <a class="btn" href="#" target="_blank" rel="noopener">
+          DFMPro v13 for Creo 8.0 (64bit) をダウンロード
+        </a><br>
+        <span class="small muted">（例：Setup_Creo8.zip）</span>
+      </p>
+
+      <p>
+        <a class="btn2" href="#" target="_blank" rel="noopener">
+          DFMPro v13 for Creo 9.0 (64bit) をダウンロード
+        </a><br>
+        <span class="small muted">（例：Setup_Creo9.zip）</span>
+      </p>
+
+      <p>
+        <a class="btn2" href="#" target="_blank" rel="noopener">
+          DFMPro v13 for Creo 10.0 (64bit) をダウンロード
+        </a><br>
+        <span class="small muted">（例：Setup_Creo10.zip）</span>
+      </p>
+
+      <div class="note" style="margin-top:12px;">
+        <strong>補足：</strong>ダウンロード後、Zipが小さすぎる/解凍できない場合は、途中で失敗している可能性があります。再ダウンロードしてください。
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>公式（参考）</h3>
+      <p class="small">HCL公式のダウンロードページ（認証が必要な場合あり）</p>
+      <p>
+        <a class="btn2" href="https://dfmpro.com/support/customer-area/downloads/creo/" target="_blank" rel="noopener">
+          HCL DFMPro Downloads（Creo）
+        </a>
+      </p>
+      <p class="small muted">※こちらは“日本語ガイド差し替え”はされません。</p>
+    </section>
+  </div>
+
+  <h2 id="install" class="anchor">2. インストール</h2>
+
+  <section class="card">
+    <h3>手順（基本）</h3>
+    <ol>
+      <li>ダウンロードしたZipを任意のフォルダに保存</li>
+      <li>Zipを解凍（例：<code>C:\Temp\DFMPro\</code>）</li>
+      <li>セットアップ（例：<code>Setup.exe</code>）を<strong>右クリック → 管理者として実行</strong></li>
+      <li>ウィザードに従ってインストール</li>
+      <li>インストール後に対象のCreoを起動</li>
+    </ol>
+
+    <div class="note">
+      <strong>Windowsの警告が出る場合：</strong>
+      SmartScreen等でブロックされた場合は「詳細情報」→「実行」を選択してください。<br>
+      （社内ポリシーで不可の場合は情シスへ）
+    </div>
+
+    <div class="warn" style="margin-top:12px;">
+      <strong>つまずきポイント（最頻出）：</strong><br>
+      「インストールは終わったのにCreoにメニューが出ない」場合は、<br>
+      ①<strong>管理者として実行</strong>したか / ②<strong>Creoバージョンの取り違え</strong>（8/9/10/11/12） が多いです。<br>
+      → <a href="#trouble">つまずき集</a> を先に確認してください。
+    </div>
+
+    <h3>Creoが複数入っている場合（メモ）</h3>
+    <ul>
+      <li>導入したいCreoのメジャーバージョンに合うインストーラーを選択してください（8/9/10…）。</li>
+      <li>インストール後は、<strong>導入対象のCreo</strong>を起動して、リボン/メニューの表示を確認します。</li>
+    </ul>
+
+    <h3>（任意）上書き・再インストール時のメモ</h3>
+    <ul>
+      <li>既存DFMProがある場合、まずはアンインストール推奨（運用で決める）</li>
+      <li>社内標準のインストール先がある場合はここに追記</li>
+    </ul>
+  </section>
+
+  <h2 id="license" class="anchor">3. ライセンス / アクティベーション</h2>
+
+  <section class="card">
+    <p class="small">
+      ※ここは運用が固まり次第、ノードロック/フローティングで確定手順を入れます。<br>
+      “問い合わせが減る形”を先に作るため、<strong>やること3点</strong>の枠だけ置いています。
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>ノードロック（例）</h3>
+        <ol>
+          <li><strong>入力場所：</strong>（例：DFMPro側のライセンス入力画面）</li>
+          <li><strong>アクティベート：</strong>（オンライン/オフラインの手順）</li>
+          <li><strong>よくある失敗：</strong>台数上限 / 別PCへ移設 / 期限切れ など</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>フローティング（例）</h3>
+        <ol>
+          <li><strong>サーバ指定：</strong>（例：License Server のホスト名/IP）</li>
+          <li><strong>疎通確認：</strong>ネットワーク/ポート/プロキシ（必要なら）</li>
+          <li><strong>よくある失敗：</strong>VPN/社内FW/サーバ停止/アドレス誤り など</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>コツ：</strong>
+      ここは「画面キャプチャ 1枚」と「入力すべき項目名」だけでも、問い合わせが一気に減ります（後で差し込みましょう）。
+    </div>
+  </section>
+
+  <h2 id="verify" class="anchor">4. 動作確認</h2>
+
+  <section class="card">
+    <ol>
+      <li>Creo起動後、DFMProメニュー / リボンが表示されるか</li>
+      <li>Rule Manager が起動できるか</li>
+      <li>簡単なモデルでチェック実行できるか</li>
+    </ol>
+
+    <p class="small">
+      もしDFMProが表示されない場合は、まず <a href="#t-no-menu">「CreoにDFMProが出てこない」</a> を確認してください。
+    </p>
+
+    <p class="small muted">
+      ※スクリーンショット付きにすると強いので、後で差し込みましょう（例：どのリボンに出るか、どのメニュー名か）。
+    </p>
+  </section>
+
+  <h2 id="trouble" class="anchor">5. よくあるつまずき（仮）</h2>
+
+  <div class="grid">
+    <section class="card" id="t-no-menu">
+      <h3>CreoにDFMProが出てこない</h3>
+      <ul>
+        <li>セットアップを「右クリック → <strong>管理者として実行</strong>」したか</li>
+        <li>対象Creoバージョンの取り違え（8/9/10/11/12など）</li>
+        <li>セキュリティソフト/社内ポリシーでブロックされていないか</li>
+      </ul>
+      <p class="small muted">
+        よくあるパターン：Creo 8 に Creo 9 用を入れている／Zip解凍が途中で止まっている／管理者権限なしで実行した。
+      </p>
+    </section>
+
+    <section class="card" id="t-auth">
+      <h3>起動時に認証エラー</h3>
+      <ul>
+        <li>ライセンス形態（ノードロック/フローティング）が合っているか</li>
+        <li>ライセンス期限 / 台数上限</li>
+        <li>フローティングの場合、サーバー疎通（VPN/社内FW/プロキシ）</li>
+      </ul>
+    </section>
+
+    <section class="card" id="t-installer">
+      <h3>インストーラーが起動しない</h3>
+      <ul>
+        <li>Zip解凍が途中で止まっていないか（別フォルダへ解凍し直す）</li>
+        <li>Windowsの保護（SmartScreen）でブロックされていないか</li>
+        <li>ダウンロードが破損していないか（再DL）</li>
+      </ul>
+    </section>
+  </div>
+
+  <h2 id="uninstall" class="anchor">6. アンインストール / 再インストール（仮）</h2>
+  <section class="card">
+    <p class="small">
+      ※詳細は後でページ化します（例：uninstall.html）。ひとまず“相談が多いポイント”だけ置きます。
+    </p>
+    <ul>
+      <li>再インストール前に、既存DFMProのアンインストールが必要な場合があります（運用で決定）。</li>
+      <li>同一PCでのアップデート/上書き可否は、配布パッケージの方針に合わせます。</li>
+      <li>「Creoに出ない」系は、まず <a href="#t-no-menu">管理者実行</a> と <a href="./creo-compat.html">Creoバージョン</a> を確認してください。</li>
+    </ul>
+  </section>
+
+  <h2 id="contact" class="anchor">7. うまくいかない時</h2>
+  <section class="card">
+    <p>お手数ですが、以下を添えてお問い合わせください。</p>
+    <ul>
+      <li>環境（Creo/OS/DFMPro版）</li>
+      <li>症状（いつ/何をしたら/何が起きたか）</li>
+      <li>再現手順</li>
+      <li>可能ならログ/スクリーンショット</li>
+    </ul>
+    <p>
+      <a class="btn" href="https://forms.office.com/r/U1B6WRdaht" target="_blank" rel="noopener">サポートフォームを開く</a>
+      <a class="btn2" href="mailto:support@sentandigital.zohodesk.jp">メールで問い合わせ</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © Sentan-Digital / DFMPro Support
+  </div>
+</footer>
+
+</body>
+</html>
