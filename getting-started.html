@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>はじめてのセットアップ | DFMPro サポートセンター</title>
+
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;color:#111;background:#fff;}
+header{padding:20px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:10;}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+h1{margin:0;font-size:22px;}
+.sub{color:#666;font-size:14px;margin-top:6px;}
+main{padding:30px 0 50px;}
+h2{margin-top:40px;font-size:20px;}
+p,li{line-height:1.7;}
+.grid{display:grid;gap:14px;margin:20px 0;}
+.card{border:1px solid #eee;border-radius:14px;padding:18px;background:#fff;}
+.note{background:#f0f9ff;border:1px solid #bae6fd;padding:14px;border-radius:12px;}
+.warn{background:#fff7ed;border:1px solid #fed7aa;padding:14px;border-radius:12px;}
+.btn{display:inline-block;background:#0b5;color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;}
+.btn2{display:inline-block;border:1px solid #ddd;color:#111;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;}
+.btn:hover{opacity:.9;}
+footer{border-top:1px solid #eee;padding:20px 0;font-size:13px;color:#666;}
+.center{text-align:center;}
+.flow{background:#fafafa;border:1px solid #eee;border-radius:14px;padding:18px;margin-top:15px;}
+.step{margin:10px 0;padding-left:18px;}
+.highlight{background:#f5f5f5;padding:4px 8px;border-radius:6px;}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap">
+<h1>はじめてのセットアップ</h1>
+<p class="sub">DFMProを初めて導入する方向けのガイドです（5分で全体像がわかります）。</p>
+</div>
+</header>
+
+<main class="wrap">
+
+<h2>🔰 DFMProって何をするソフト？</h2>
+
+<div class="card">
+<p>
+DFMProは、<strong>Creoの中で動く設計チェックツール</strong>です。
+</p>
+
+<ul>
+<li>加工できない穴形状の検出</li>
+<li>肉厚の不均一チェック</li>
+<li>抜き勾配不足の検出</li>
+<li>製造トラブルの事前発見</li>
+</ul>
+
+<p>
+つまり、<strong>「あとで怒られない設計」にするためのツール</strong>です。
+</p>
+</div>
+
+<h2>🚀 導入までの流れ（全体像）</h2>
+
+<div class="flow">
+<div class="step">① Creoのバージョン確認</div>
+<div class="step">② 対応インストーラーをダウンロード</div>
+<div class="step">③ 管理者権限でインストール</div>
+<div class="step">④ ライセンス設定</div>
+<div class="step">⑤ チェック実行</div>
+</div>
+
+<p class="center" style="margin-top:15px;">
+<a class="btn" href="./install.html">インストール手順を見る</a>
+</p>
+
+<h2>🛠 まずやること（最短ルート）</h2>
+
+<div class="card">
+<ul>
+<li>✔ Creoバージョンを確認（8 / 9 / 10 / 11 / 12など）</li>
+<li>✔ 対応するインストーラーをダウンロード</li>
+<li>✔ セットアップを<strong>右クリック → 管理者として実行</strong></li>
+<li>✔ Creoを起動</li>
+</ul>
+</div>
+
+<div class="warn">
+<strong>よくあるミス：</strong><br>
+Creo 8 に Creo 9 用インストーラーを入れても表示されません。<br>
+必ずバージョンを確認してください。
+</div>
+
+<h2>👀 初回起動でやること</h2>
+
+<div class="card">
+<p>
+Creo起動後、リボンに<strong>DFMPro</strong>が表示されていればOKです。
+</p>
+
+<p>
+まずは以下を試してください：
+</p>
+
+<ol>
+<li>Rule Managerを開く</li>
+<li>基本ルール（Machining Basicなど）を選択</li>
+<li>Checkを実行</li>
+</ol>
+
+<p>
+赤い×が出たら「製造上の注意ポイント」です。
+</p>
+</div>
+
+<div class="note">
+最初は完璧に理解しなくて大丈夫です。<br>
+「エラーがどこに出るか」を体験することが第一歩です。
+</div>
+
+<h2>❓ つまずいたら</h2>
+
+<div class="grid">
+<div class="card">
+<h3>DFMProが表示されない</h3>
+<ul>
+<li>管理者実行したか</li>
+<li>Creoバージョンを間違えていないか</li>
+</ul>
+<a class="btn2" href="./install.html#trouble">トラブルシュートを見る</a>
+</div>
+
+<div class="card">
+<h3>認証エラーが出る</h3>
+<ul>
+<li>ライセンス形態を確認</li>
+<li>期限切れ / 台数上限</li>
+</ul>
+<a class="btn2" href="./install.html#license">ライセンスを見る</a>
+</div>
+</div>
+
+<h2>✨ 最後に</h2>
+
+<div class="card">
+<p>
+DFMProは「設計者を守るツール」です。
+</p>
+
+<p>
+製造トラブルを減らし、やり直しを防ぎ、設計の質を上げる。
+</p>
+
+<p>
+最初の一歩は、<strong>チェックを1回実行してみること</strong>です。
+</p>
+</div>
+
+<p class="center" style="margin-top:25px;">
+<a class="btn" href="./install.html">インストールへ進む</a>
+</p>
+
+</main>
+
+<footer>
+<div class="wrap">
+© Sentan-Digital / DFMPro Support
+</div>
+</footer>
+
+</body>
+</html>
